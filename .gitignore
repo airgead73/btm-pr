@@ -1,0 +1,9 @@
+# Miscellaneous
+.DS_Store
+assets/
+
+# Node
+node_modules
+
+# Environment
+.env
