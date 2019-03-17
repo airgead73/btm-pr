@@ -1,3 +1,20 @@
-h1 {
-  color: green;
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: $footerSize;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footerSize;
+  line-height: $footerSize;
+}
+
+main {
+  padding: 75px 0;
 }
