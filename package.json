@@ -1,0 +1,24 @@
+{
+  "name": "btmPR",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile-sass": "node-sass scss/main.scss client/public/css/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airgead73/btmPR.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/airgead73/btmPR/issues"
+  },
+  "homepage": "https://github.com/airgead73/btmPR#readme",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
