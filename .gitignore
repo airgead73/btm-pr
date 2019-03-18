@@ -7,3 +7,7 @@ node_modules
 
 # Environment
 .env
+
+# Bootstrap
+scss/vendors/bootstrap
+_bootstrap.scss
