@@ -1,6 +1,17 @@
-console.log("app is loaded");
+console.log("app reloaded");
 
-fetch('../db/data.json')
+
+var makeIMG = function(src, title) {
+  var img = document.createElement('img');
+  img.setAttribute('src', src);
+  img.setAttribute('alt', title);
+  img.setAttribute('title', title);
+  
+  return img;
+
+}
+
+fetch('../../db/data.json')
   .then(response => {
     return response.json();
   })
