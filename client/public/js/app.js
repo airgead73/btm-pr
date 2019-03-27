@@ -11,7 +11,9 @@ var makeIMG = function(src, title) {
 
 }
 
-fetch('../../db/data.json')
+const myKey = NASA_KEY;
+
+fetch(`https://api.nasa.gov/planetary/apod?api_key=${myKey}`)
   .then(response => {
     return response.json();
   })
