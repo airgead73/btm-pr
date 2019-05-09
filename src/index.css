@@ -16,6 +16,7 @@ code {
 figure {
   max-width: 400px;
   display: inline-block;
+  vertical-align: top;
 }
 
 figure img {
