@@ -1,13 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>btm pr</h1>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentImages: [],
+      message: ''
+    }
+  }  
+
+  componentDidMount() {
+    return axios.get('https://us-central1-btm-pr.cloudfunctions.net/getImages').then((response) => {
+      this.setState({
+        currentImages: response.data
+      })
+    })
+  }  
+  
+  renderItems() {
+    
+    const { currentImages, message } = this.state;
+
+    return (
+      currentImages.length > 0 &&
+      <div>
+                  
+          {
+            currentImages.map(item => {
+              return (
+                <ul key={item.id}>
+                  <li>{item.title}</li>
+                  <li>{item.src}</li>
+                </ul>
+              )
+            })
+          }
+        </div> 
+    )
+  }   
+  
+
+  render() {
+    return (
+      <div>
+        <h1>Images</h1>
+        {this.renderItems()}
+      </div>
+    );
+  }
 }
 
 export default App;

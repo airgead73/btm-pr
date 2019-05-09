@@ -81,6 +81,8 @@ exports.addImage = functions.https.onRequest((req, res) => {
   });
 });
 
+// Filter Images
+
 exports.filterImages = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
     if(req.method !== 'GET') {
@@ -91,5 +93,18 @@ exports.filterImages = functions.https.onRequest((req, res) => {
     const selectedFilter = req.query.selectedFilter;
     const filterVal = req.query.filterVal;
     getFilterResults(res, selectedFilter, filterVal);    
+  });
+});
+
+// Get All Images
+
+exports.getImages = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+    if(req.method !== 'GET') {
+      return res.status(401).json({
+        message: 'Not allowed'
+      });
+    };
+    getImagesFromDB(res);
   });
 });
