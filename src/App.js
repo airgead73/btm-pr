@@ -31,10 +31,11 @@ class App extends Component {
           {
             currentImages.map(item => {
               return (
-                <ul key={item.id}>
-                  <li>{item.title}</li>
-                  <li>{item.src}</li>
-                </ul>
+
+                <figure key={item.id}>
+                  <img src={item.src} alt={item.alt}/>
+                  <figcaption>{item.title}</figcaption>
+                </figure>
               )
             })
           }

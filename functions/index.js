@@ -81,6 +81,37 @@ exports.addImage = functions.https.onRequest((req, res) => {
   });
 });
 
+// Update Image 
+
+exports.updateImage = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+    if(req.method !== 'PUT') {
+      return res.status(401).json({
+        message: 'Not allowed'
+      })
+    }
+    const id = req.query.id;
+    let imageToUpdate = admin.database().ref(`/images/${id}`);
+    imageToUpdate.update(req.body);
+    getImagesFromDB(res);
+  });
+});
+
+// Delete Image
+
+exports.deleteImage = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+    if(req.method !== 'DELETE') {
+      return res.status(401).json({
+        message: 'Not allowed'
+      })
+    }
+    const id = req.query.id;
+    admin.database().ref(`/images/${id}`).remove();
+    getImagesFromDB(res);
+  });
+});
+
 // Filter Images
 
 exports.filterImages = functions.https.onRequest((req, res) => {
