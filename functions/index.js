@@ -1,13 +1,12 @@
 const functions = require('firebase-functions');
+const DB = require('./admin');
 const cors = require('cors')({ origin: true });
-const admin = require('firebase-admin');
-admin.initializeApp();
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("functions for btm pr");
 });
 
-const DB = admin.database();
+//const DB = admin.database();
 const DB_IMAGES = DB.ref('/images');
 
 const getImagesFromDB = (res) => {
@@ -139,3 +138,9 @@ exports.getImages = functions.https.onRequest((req, res) => {
     getImagesFromDB(res);
   });
 });
+
+// callable function
+
+exports.newPerson = functions.https.onCall((data, context) => {
+  var 
+})
