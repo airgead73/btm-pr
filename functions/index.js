@@ -90,7 +90,7 @@ exports.updateImage = functions.https.onRequest((req, res) => {
       })
     }
     const id = req.query.id;
-    let imageToUpdate = admin.database().ref(`/images/${id}`);
+    let imageToUpdate = DB.ref(`/images/${id}`);
     imageToUpdate.update(req.body);
     getImagesFromDB(res);
   });
@@ -106,7 +106,7 @@ exports.deleteImage = functions.https.onRequest((req, res) => {
       })
     }
     const id = req.query.id;
-    admin.database().ref(`/images/${id}`).remove();
+    DB.ref(`/images/${id}`).remove();
     getImagesFromDB(res);
   });
 });
@@ -141,6 +141,3 @@ exports.getImages = functions.https.onRequest((req, res) => {
 
 // callable function
 
-exports.newPerson = functions.https.onCall((data, context) => {
-  var 
-})

@@ -33,7 +33,7 @@ class App extends Component {
               return (
 
                 <figure key={item.id}>
-                  <img src={item.src} alt={item.alt}/>
+                  <img src={item.src} alt={item.alt} title={item.alt}/>
                   <figcaption>{item.title}</figcaption>
                 </figure>
               )
