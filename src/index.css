@@ -8,21 +8,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 
-figure {
-  max-width: 400px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-figure img {
-  max-width: 100%;
-}
 
 h1 {
   text-align: center;
+}
+
+.activeNavLink {
+  font-weight: bold;
+}
+
+h1 small {
+  color: indianred;
+  font-style: italic;
 }
