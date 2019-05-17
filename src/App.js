@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Nav from './Nav';
-import Home from './Home';
-import About from './About';
-import Work from './Work';
-import WorkModality from './WorkModality';
-import WorkModalityCategory from './WorkModalityCategory';
-import Contact from './Contact';
-import PageNotFound from './PageNotFound';
+import Nav from './components/Nav/Nav';
+import Home from './components/Home';
+import About from './components/About';
+import Work from './components/Work';
+import WorkModality from './components/WorkModality';
+import WorkModalityCategory from './components/WorkModalityCategory';
+import Contact from './components/Contact';
+import PageNotFound from './components/PageNotFound';
 
 
 class App extends Component {
