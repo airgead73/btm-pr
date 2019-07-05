@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "btm-pr"
+  },
+  "targets": {
+    "btm-pr": {
+      "hosting": {
+        "app": [
+          "btm-pr"
+        ],
+        "admin": [
+          "btm-admin"
+        ]
+      }
+    }
+  }
+}
