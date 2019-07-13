@@ -6,7 +6,8 @@
   "scripts": {
     "app:deploy": "firebase deploy --only hosting:app",
     "admin:deploy": "firebase deploy --only hosting:admin",
-    "start": "webpack-dev-server --mode development --config app/config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stage"
+    "start": "webpack-dev-server --mode development --config app/config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stage",
+    "build": "webpack --mode production --config app/config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stage --progress"
   },
   "repository": {
     "type": "git",

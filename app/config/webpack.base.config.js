@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin =require('mini-css-extract-plugin');
@@ -9,6 +10,10 @@ module.exports = env => {
   return merge([
     {
       entry: './app/src/index.js',
+      output: {
+        path: path.resolve(__dirname, '../dist'),
+        filename: 'main.js'
+      },
       module: {
         rules: [
           {
