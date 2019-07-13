@@ -30,7 +30,18 @@ module.exports = env => {
               'css-loader',
               'sass-loader'
             ]
-          }
+          },
+           {
+             test: /\.(png|svg|jpg|gif)$/,
+             use: {
+               loader: 'file-loader',
+               options: {
+                 name: '[path][name].[ext]',
+                 context: 'app/src',
+                 publicPath: '/'
+               }
+             }
+           }
         ]
       },
       plugins: [
@@ -41,10 +52,11 @@ module.exports = env => {
         new webpack.DefinePlugin({
           'process.env.VERSION': JSON.stringify(env.VERSION),
           'process.env.PLATFORM': JSON.stringify(env.PLATFORM)
-        }),
-        new CopyWebpackPlugin([{
-          from: 'app/src/static'
-        }])
+        })
+        // new CopyWebpackPlugin([{
+        //   from: 'app/src/public',
+        //   to:'./public'
+        // }])
       ]
     }
   ])
