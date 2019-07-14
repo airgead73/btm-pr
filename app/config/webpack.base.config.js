@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin =require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = env => {
   const { PLATFORM, VERSION } = env;
@@ -36,15 +37,16 @@ module.exports = env => {
              use: {
                loader: 'file-loader',
                options: {
-                 name: '[path][name].[ext]',
-                 context: 'app/src',
-                 publicPath: '/'
+                 name: 'images/[name].[ext]'
+                 //context: 'app/src',
+                 //publicPath: '/'
                }
              }
            }
         ]
       },
       plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ 
           template: './app/src/index.html', 
           filename: 'index.html' 
@@ -52,11 +54,11 @@ module.exports = env => {
         new webpack.DefinePlugin({
           'process.env.VERSION': JSON.stringify(env.VERSION),
           'process.env.PLATFORM': JSON.stringify(env.PLATFORM)
-        })
-        // new CopyWebpackPlugin([{
-        //   from: 'app/src/public',
-        //   to:'./public'
-        // }])
+        }),
+        new CopyWebpackPlugin([{
+          from: 'app/src/images',
+          to:'./images'
+        }])
       ]
     }
   ])
