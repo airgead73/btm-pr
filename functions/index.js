@@ -1,8 +1,16 @@
 const functions = require('firebase-functions');
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
-});
+const { 
+  getImages,
+  addImage,
+  addImages, 
+  getMessage,
+ } = require('./api/images');
+
+
+module.exports = {
+  getImages: functions.https.onRequest(getImages),
+  addImage: functions.https.onRequest(addImage),
+  addImages: functions.https.onRequest(addImages),
+  getMessage: functions.https.onRequest(getMessage)
+}

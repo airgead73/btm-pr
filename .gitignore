@@ -13,3 +13,4 @@ node_modules
 *.png
 *.jpg
 */dist/
+data.json
