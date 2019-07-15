@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "app:deploy": "firebase deploy --only hosting:app",
-    "admin:deploy": "firebase deploy --only hosting:admin",
-    "start": "webpack-dev-server --mode development --config app/config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stage",
-    "build": "webpack --mode production --config app/config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stage --progress"
+    "app:start": "webpack-dev-server --mode development --config app/config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stage",
+    "app:build": "webpack --mode production --config app/config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stage --progress",
+    "admin:deploy": "firebase deploy --only hosting:admin"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,9 @@
   },
   "homepage": "https://github.com/airgead73/btm-pr#readme",
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1"
