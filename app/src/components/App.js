@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <h1>App Home</h1>
-        <p>This is the app home.</p>
+        <p className="txt-center">This is the app home.</p>
       </React.Fragment>
     )
   }
