@@ -24,9 +24,34 @@ const getImages = (req, res) => {
         message: 'Not allowed'
       });
     };
-    //res.send("GET request: getImages");
     retrieveImages(res);
   })
+}
+
+const filterImages = (req, res) => {
+  return cors(req,res,() => {
+    if(req.method !== 'GET') {
+      return res.status(401).json({
+        message: 'Not allowed'
+      });
+    }    
+    let images = [];
+    let modality = req.body.modality;
+    return DB.collection('images')
+    .where("modality", "==", modality)
+    .get()
+    .then((querySnapshot)=> {
+      querySnapshot.forEach((doc)=> {
+        images.push(doc.data());
+      });
+    })
+    .then(() => {
+      res.status(200).json(images)
+    })
+    .catch((err) => {
+      console.log('Error getting documents', err)
+    });    
+  });
 }
 
 const addImage = (req, res) => {
@@ -80,5 +105,6 @@ module.exports = {
   getImages,
   addImage,
   addImages,
+  filterImages,
   getMessage
 }
