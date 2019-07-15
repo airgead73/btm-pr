@@ -7,6 +7,7 @@
     "app:deploy": "firebase deploy --only hosting:app",
     "app:start": "webpack-dev-server --mode development --config app/config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stage",
     "app:build": "webpack --mode production --config app/config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stage --progress",
+    "app:functions": "firebase deploy --only functions",
     "admin:deploy": "firebase deploy --only hosting:admin",
     "admin:start": "webpack-dev-server --mode development --config admin/config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stage",
     "admin:build": "webpack --mode production --config admin/config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stage --progress"    

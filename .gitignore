@@ -4,6 +4,7 @@ assets/
 
 # Node
 node_modules
+*/node_modules
 
 # Environment
 .env
