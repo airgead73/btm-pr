@@ -1,4 +1,4 @@
 # BM Site Production Repository
 
-### branch fb_02
-app and admin shells with webpack, react, bootstrap, and jquery
+### branch fb_03
+app hookup to db
