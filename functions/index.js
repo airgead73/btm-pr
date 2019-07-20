@@ -8,6 +8,17 @@ const {
   getMessage,
  } = require('./api/images');
 
+exports.addPerson = functions.https.onCall((data, context) => {
+  var firstName = data.firstName;
+  var lastName = data.lastName;
+
+  return {
+    firstName: firstName,
+    lastName: lastName,
+    fullName: firstName + " " + lastName
+  }
+})
+
 
 module.exports = {
   getImages: functions.https.onRequest(getImages),
