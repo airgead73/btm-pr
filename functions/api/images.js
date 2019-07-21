@@ -35,24 +35,24 @@ const filterImages = (req, res) => {
         message: 'Not allowed'
       });
     } 
-    let modality = req.query.name;
-    res.send(`You are looking for ${modality}.`);   
-    // let images = [];
-    // let modality = req.body.modality;
-    // return DB.collection('images')
-    // .where("modality", "==", modality)
-    // .get()
-    // .then((querySnapshot)=> {
-    //   querySnapshot.forEach((doc)=> {
-    //     images.push(doc.data());
-    //   });
-    // })
-    // .then(() => {
-    //   res.status(200).json(images)
-    // })
-    // .catch((err) => {
-    //   console.log('Error getting documents', err)
-    // });    
+    let modality = req.query.modality;
+    let category = req.query.category
+    //res.send(`You are looking for ${modality} and ${category}.`);   
+    let images = [];
+    return DB.collection('images')
+    .where("modality", "==", modality)
+    .get()
+    .then((querySnapshot)=> {
+      querySnapshot.forEach((doc)=> {
+        images.push(doc.data());
+      });
+    })
+    .then(() => {
+      res.status(200).json(images)
+    })
+    .catch((err) => {
+      console.log('Error getting documents', err)
+    });    
   });
 }
 
