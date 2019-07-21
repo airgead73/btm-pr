@@ -6,7 +6,12 @@ const retrieveImages = (res) => {
   return DB.collection('images').get()
   .then((snapshot) => {
     snapshot.forEach((doc) => {
-      images.push(doc.data())
+      let imgData = doc.data();
+      let newImg = {};
+      newImg.src = imgData.file;
+      newImg.title = imgData.title;
+      newImg.modality = imgData.modality; 
+      images.push(newImg);
     });
   })
   .then(() => {
@@ -16,6 +21,8 @@ const retrieveImages = (res) => {
     console.log('Error getting documents', err)
   });
 }
+
+// GET IMAGES
 
 const getImages = (req, res) => {
   return cors(req,res,() => {
@@ -28,6 +35,8 @@ const getImages = (req, res) => {
   })
 }
 
+// FILTER IMAGES
+
 const filterImages = (req, res) => {
   return cors(req,res,() => {
     if(req.method !== 'GET') {
@@ -35,12 +44,12 @@ const filterImages = (req, res) => {
         message: 'Not allowed'
       });
     } 
-    let modality = req.query.modality;
-    let category = req.query.category
-    //res.send(`You are looking for ${modality} and ${category}.`);   
+    let filter = req.query.filterName;
+    let value = req.query.filterValue; 
     let images = [];
+    //res.send(`Filter name is ${filter}. Filter value is ${value}`);
     return DB.collection('images')
-    .where("modality", "==", modality)
+    .where(filter, "==", value)
     .get()
     .then((querySnapshot)=> {
       querySnapshot.forEach((doc)=> {

@@ -24,7 +24,7 @@ class App extends Component {
         <h1>App Home</h1>
         <p className="txt-center">This is the app home.</p>
         <ul>
-          { this.state.images.map(image => <li key={image.file}>{image.title} | {image.modality}  | {image.medium}  | {image.category}   | {image.file}</li>) }
+          { this.state.images.map(image => <li key={image.src}>{image.title} | {image.modality} | {image.src}</li>) }
         </ul>
       </React.Fragment>
     )
