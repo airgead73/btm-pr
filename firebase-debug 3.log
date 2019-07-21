@@ -1,0 +1,21 @@
+[debug] [2019-07-05T22:35:21.940Z] ----------------------------------------------------------------------
+[debug] [2019-07-05T22:35:21.942Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2019-07-05T22:35:21.942Z] CLI Version:   7.0.2
+[debug] [2019-07-05T22:35:21.942Z] Platform:      darwin
+[debug] [2019-07-05T22:35:21.942Z] Node Version:  v10.13.0
+[debug] [2019-07-05T22:35:21.943Z] Time:          Fri Jul 05 2019 15:35:21 GMT-0700 (Pacific Daylight Time)
+[debug] [2019-07-05T22:35:21.943Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-05T22:35:21.951Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-05T22:35:21.951Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/danielmoneypenny/Documents/projects/btm/btm-pr
+
