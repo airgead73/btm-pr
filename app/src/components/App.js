@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { 
-  FILTER_IMAGES
+  FILTER_MULTIPLE
  } from '../api/requests';
 
 class App extends Component {
@@ -16,10 +16,9 @@ class App extends Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: FILTER_IMAGES,
+      url: FILTER_MULTIPLE,
       params: {
-        filterOne: 'medium',
-        filterOneValue: 'marble'
+        queryTotal: 2
       }
     })
     .then(res => {
@@ -36,7 +35,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <h1>App Home</h1>
-        <p className="txt-center">{images.length}</p>
+        <p className="txt-center">images</p>
+
 
       </React.Fragment>
     )
