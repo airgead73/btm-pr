@@ -18,7 +18,8 @@ class App extends Component {
       method: 'get',
       url: FILTER_MULTIPLE,
       params: {
-        queryTotal: 2
+        modality: "sculpture",
+        category: "abstract"
       }
     })
     .then(res => {
