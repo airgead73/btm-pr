@@ -8,10 +8,15 @@ const {
   deleteImage
 } = require('./api/crud');
 
+const {
+  filterOne
+} = require('./api/filter');
+
 module.exports = {
   getImages: functions.https.onRequest(getImages),
   addImage: functions.https.onRequest(addImage),
   addImages: functions.https.onRequest(addImages),
   updateImage: functions.https.onRequest(updateImage),
   deleteImage: functions.https.onRequest(deleteImage),
+  filterOne: functions.https.onRequest(filterOne)
 }

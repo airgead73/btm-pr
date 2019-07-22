@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { 
-  GET_IMAGES
+  FILTER_IMAGES
  } from '../api/requests';
 
 class App extends Component {
@@ -16,7 +16,11 @@ class App extends Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: GET_IMAGES
+      url: FILTER_IMAGES,
+      params: {
+        filterOne: 'medium',
+        filterOneValue: 'marble'
+      }
     })
     .then(res => {
       this.setState({ images: res.data });
@@ -32,12 +36,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <h1>App Home</h1>
-        <p className="txt-center">Image Count: {images.length}</p>
-        {images.map(image =>(
-          <figure key={image.id} id={image.id}>
-            <img src={image.src} alt={image.alt} title={image.title}/>
-          </figure>
-        ))}
+        <p className="txt-center">{images.length}</p>
+
       </React.Fragment>
     )
   }
