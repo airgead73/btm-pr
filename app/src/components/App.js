@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { 
-  FILTER_MULTIPLE
- } from '../api/requests';
+// import { 
+//   FILTER_MULTIPLE
+//  } from '../api/requests';
 
 class App extends Component {
   constructor(props) {
@@ -10,25 +10,26 @@ class App extends Component {
   }
 
   state = {
-    images: []
+    images: [],
+    view: 'home'
   }
 
-  componentDidMount() {
-    axios({
-      method: 'get',
-      url: FILTER_MULTIPLE,
-      params: {
-        modality: "sculpture",
-        category: "abstract"
-      }
-    })
-    .then(res => {
-      this.setState({ images: res.data });
-    })
-    .catch(error => {
-      this.setState({ images: error.message });
-    });
-  }
+  // componentDidMount() {
+  //   axios({
+  //     method: 'get',
+  //     url: FILTER_MULTIPLE,
+  //     params: {
+  //       modality: "sculpture",
+  //       category: "abstract"
+  //     }
+  //   })
+  //   .then(res => {
+  //     this.setState({ images: res.data });
+  //   })
+  //   .catch(error => {
+  //     this.setState({ images: error.message });
+  //   });
+  // }
 
   render() {
     const images = this.state.images;
