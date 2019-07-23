@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Nav/>
         <h1>Brian's Work</h1>
         <Switch>
@@ -35,10 +35,8 @@ class App extends Component {
           <Route path='/contact' component={Contact}/>
           <Route path='/terms' component={Terms}/>
           <Route component={PageNotFound}/>
-          
         </Switch>
-
-      </div>
+      </React.Fragment>
     );
   }
 }
