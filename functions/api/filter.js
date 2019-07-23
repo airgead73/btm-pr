@@ -20,8 +20,8 @@ const filterSingle = (req, res) => {
         message: 'method not allowed'
       });
     };
-    let filter = req.query.filterSingle;
-    let value = req.query.filterSingleValue;
+    let filter = req.query.filter;
+    let value = req.query.filterValue;
     let images = [];
     return DB.collection('images')
            .where(filter, "==", value)
@@ -43,6 +43,69 @@ const filterSingle = (req, res) => {
 
 }
 
+const filterModalityCategory = (req, res) => {
+  return cors(req, res, () => {
+    if(req.method !== 'GET') {
+      return res.status(401).json({
+        message: 'method not allowed'
+      });
+    };
+    let modality = req.query.modality;
+    let category = req.query.category;
+    let images = [];
+    return DB.collection('images')
+           .where("modality", "==", modality)
+           .where("category", "==", category)
+           .get()
+           .then((querySnapshot) => {
+             querySnapshot.forEach((doc) => {
+              images.push(formatImg(doc));
+             });
+           })
+           .then(() => {
+             res.status(200).json(images);
+           })
+           .catch((err) => {
+             res.status(err.status).json({
+               message: err.message
+             });
+           });
+  });
+
+}
+
+const filterModalityMedium = (req, res) => {
+  return cors(req, res, () => {
+    if(req.method !== 'GET') {
+      return res.status(401).json({
+        message: 'method not allowed'
+      });
+    };
+    let modality = req.query.modality;
+    let medium = req.query.medium;
+    let images = [];
+    return DB.collection('images')
+           .where("modality", "==", modality)
+           .where("medium", "==", medium)
+           .get()
+           .then((querySnapshot) => {
+             querySnapshot.forEach((doc) => {
+              images.push(formatImg(doc));
+             });
+           })
+           .then(() => {
+             res.status(200).json(images);
+           })
+           .catch((err) => {
+             res.status(err.status).json({
+               message: err.message
+             });
+           });
+  });
+
+}
+
 module.exports = {
-  filterSingle
+  filterSingle,
+  filterModalityCategory
 }
