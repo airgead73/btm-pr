@@ -107,5 +107,6 @@ const filterModalityMedium = (req, res) => {
 
 module.exports = {
   filterSingle,
-  filterModalityCategory
+  filterModalityCategory,
+  filterModalityMedium
 }

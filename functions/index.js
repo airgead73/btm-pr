@@ -9,7 +9,9 @@ const {
 } = require('./api/crud');
 
 const {
-  filterSingle
+  filterSingle,
+  filterModalityCategory,
+  filterModalityMedium
 } = require('./api/filter');
 
 module.exports = {
@@ -18,5 +20,7 @@ module.exports = {
   addImages: functions.https.onRequest(addImages),
   updateImage: functions.https.onRequest(updateImage),
   deleteImage: functions.https.onRequest(deleteImage),
-  filterSingle: functions.https.onRequest(filterSingle)
+  filterSingle: functions.https.onRequest(filterSingle),
+  filterModalityCategory: functions.https.onRequest(filterModalityCategory),
+  filterModalityMedium: functions.https.onRequest(filterModalityMedium)
 }
