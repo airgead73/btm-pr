@@ -1,9 +1,10 @@
 import React from 'react';
 
-const WorkModality = () => {
+const WorkModality = ({match}) => {
+  console.log(match.params.modality);
   return (
     <>
-    <h1>WorkModality Page</h1>
+    <h1>{match.params.modality}</h1>
     </>
   );
 };

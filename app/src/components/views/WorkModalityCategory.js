@@ -1,9 +1,10 @@
 import React from 'react';
 
-const WorkModalityCategory = () => {
+
+const WorkModalityCategory = ({match}) => {
   return (
     <>
-    <h1>WorkModalityCategory Page</h1>
+    <h1>{match.params.modality} <small>{match.params.category}</small></h1>
     </>
   );
 };
