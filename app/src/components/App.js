@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+import { FILTER_SINGLE } from '../api/requests';
 import Nav from './Nav/Nav';
 import Home from './Views/Home';
 import About from './Views/About';
@@ -17,9 +19,27 @@ class App extends Component {
 
     this.state = {
       currentImages: [],
-      message: ''
+      message: '',
+      view: 'home'
     }
-  }  
+  } 
+  
+  componentDidMount() {
+    axios({
+      method: 'GET',
+      url: FILTER_SINGLE,
+      params: {
+        filter: 'modality',
+        filterValue: 'sculpture'
+      }
+    })
+    .then(res => {
+      this.setState({ currentImages: res.data })
+    })
+    .catch(error => {
+      this.setState({ message: error.message });
+    });
+  }
 
   render() {
     return (
@@ -33,6 +53,7 @@ class App extends Component {
           <Route exact path='/work/:modality' component={WorkModality}/>
           <Route path='/work/:modality/:category' component={WorkModalityCategory}/>
           <Route path='/contact' component={Contact}/>
+          <Route path='/terms' component={Terms}/>
           <Route component={PageNotFound}/>
         </Switch>
 

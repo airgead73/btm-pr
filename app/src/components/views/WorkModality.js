@@ -5,6 +5,8 @@ const WorkModality = ({match}) => {
   return (
     <>
     <h1>{match.params.modality}</h1>
+
+  
     </>
   );
 };
