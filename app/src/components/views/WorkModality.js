@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const WorkModality = ({match}) => {
-  console.log(match.params.modality);
-  return (
-    <>
-    <h1>{match.params.modality}</h1>
+class WorkModality extends Component {
+  constructor(props) {
+    super(props);
 
-  
-    </>
-  );
-};
+    this.state = {
+      modality: null,
+      images: null
+    }
+  }
 
-export default WorkModality; 
+  componentDidMount() {
+    this.setState({ modality: this.props.match.params.modality });
+  }
+
+  render() {
+    return (
+      <>
+      <h1 className={this.state.modality}>{this.props.match.params.modality}</h1>
+      </>
+    );
+  }
+}
+
+export default WorkModality;
+

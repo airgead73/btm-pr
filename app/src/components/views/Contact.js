@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Contact = () => {
+const Contact = ({match}) => {
   return (
     <>
-    <h1>Contact Page</h1>
+    <h1>Contact Page {match.path}</h1>
     </>
   );
 };

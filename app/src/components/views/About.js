@@ -1,9 +1,13 @@
 import React from 'react';
 
-const About = () => {
+const About = (props) => {
+  
+
   return (
+    
     <>
-    <h1>About Page</h1>
+    {props.view('about')}
+    <h1>About Page {props.match.url}</h1>
     </>
   );
 };

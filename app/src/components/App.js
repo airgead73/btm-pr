@@ -19,36 +19,33 @@ class App extends Component {
 
     this.state = {
       currentImages: [],
-      message: '',
-      view: 'home'
+      message: 'app message',
+      view: null
     }
+    this.changeView = this.changeView.bind(this);
   } 
-  
-  componentDidMount() {
-    axios({
-      method: 'GET',
-      url: FILTER_SINGLE,
-      params: {
-        filter: 'modality',
-        filterValue: 'sculpture'
-      }
-    })
-    .then(res => {
-      this.setState({ currentImages: res.data })
-    })
-    .catch(error => {
-      this.setState({ message: error.message });
+
+  changeView(newView) {
+    this.setState({
+      view: newView
     });
   }
-
+  
   render() {
     return (
       <div>
         <Nav/>
-        <h1>Brian's Work</h1>
+        <h1>Brian's Site</h1>
         <Switch>
           <Route exact path='/'component={Home}/>
-          <Route path='/about' component={About}/>
+          
+          <Route path='/about' render={({match}) => 
+            <About
+              view={this.changeView}
+              message={this.state.message}
+              match={match}
+            />
+          }/>
           <Route exact path='/work' component={Work}/>
           <Route exact path='/work/:modality' component={WorkModality}/>
           <Route path='/work/:modality/:category' component={WorkModalityCategory}/>
